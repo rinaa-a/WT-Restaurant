@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="restaurant" />
         <module name="WT-Restaurant" />
+        <module name="restaurant_wt" />
+        <module name="restaurant" />
       </profile>
     </annotationProcessing>
   </component>
