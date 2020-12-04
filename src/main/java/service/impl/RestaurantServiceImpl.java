@@ -123,4 +123,13 @@ public class RestaurantServiceImpl implements RestaurantService {
         }
     }
 
+    @Override
+    public List<Dish> searchDishes(String request) throws ServiceException {
+        try {
+            return dishDao.searchDishes(request);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
+
 }

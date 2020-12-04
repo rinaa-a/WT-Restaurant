@@ -17,4 +17,5 @@ public interface RestaurantService {
     List<Order> getOrders() throws ServiceException;
     List<Order> getOrdersByUser(User user) throws ServiceException;
     void deleteOrder(Order order) throws ServiceException;
+    List<Dish> searchDishes(String request) throws ServiceException;
 }

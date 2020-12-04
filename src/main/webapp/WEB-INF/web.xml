@@ -10,7 +10,7 @@
   <display-name>Archetype Created Web Application</display-name>
 <!--<servlet>-->
 <!--  <servlet-name>Test</servlet-name>-->
-<!--  <servlet-class>controller.Test</servlet-class>-->
+<!--  <servlet-class>controller.Controller</servlet-class>-->
 <!--</servlet>-->
 
 <!--  <servlet-mapping>-->

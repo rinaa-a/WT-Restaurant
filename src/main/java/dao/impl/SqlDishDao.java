@@ -141,4 +141,35 @@ public class SqlDishDao implements DishDao {
         }
         return dishes;
     }
+
+    @Override
+    public List<Dish> searchDishes(String request) throws DaoException {
+        List<Dish> dishes = new ArrayList<>();
+        ConnectionPool pool = null;
+        Connection connection = null;
+        try {
+            pool = ConnectionPool.getInstance();
+            connection = pool.getConnection();
+
+            var sql = "SELECT * FROM dishes WHERE name LIKE '%" + request + "%'";
+            var statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                var dish = new Dish();
+                dish.setId(rs.getInt("id"));
+                dish.setName(rs.getString("name"));
+                dish.setCategory(Category.values()[rs.getInt("category")]);
+                dish.setCount(rs.getInt("count"));
+                dish.setCost(rs.getInt("cost"));
+                dishes.add(dish);
+            }
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            if (pool != null)
+                pool.returnConnection(connection);
+        }
+        return dishes;
+    }
 }
