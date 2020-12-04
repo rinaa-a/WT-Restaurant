@@ -226,7 +226,7 @@ public class Controller extends HttpServlet {
                 }
             } catch (ServiceException e) {
                 logger.error(e.getMessage());
-                request.setAttribute("errorMessage", bundle.getString("error_edit_book"));
+                request.setAttribute("errorMessage", bundle.getString("error_edit_dish"));
                 request.setAttribute("type", "edit");
                 request.getRequestDispatcher("/WEB-INF/jsp/add-edit.jsp").forward(request, response);
             } catch (NumberFormatException e) {
